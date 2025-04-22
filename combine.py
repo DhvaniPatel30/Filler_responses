@@ -26,7 +26,7 @@ def is_silent(audio_chunk, threshold=SILENCE_THRESHOLD):
     return energy < threshold
 
 def record_until_silence():
-    print("🎙️ Start speaking... (will auto stop after 15s of silence)")
+    print("🎙️ Start speaking... (will auto stop after 3s of silence)")
     silent_chunks = 0
     recorded_audio = []
 
@@ -43,7 +43,7 @@ def record_until_silence():
             print("🎤 Voice detected")
 
         if silent_chunks >= SILENCE_TIMEOUT:
-            print("⏱️ No voice for 15 seconds. Stopping execution.")
+            print("⏱️ No voice for 3 seconds. Stopping execution.")
             return np.concatenate(recorded_audio, axis=0), True
 
 print("🔊 Say something (or say 'stop listening')...\n")
